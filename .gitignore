@@ -1,0 +1,11 @@
+.venv/
+**/.venv/
+__pycache__/
+*.py[cod]
+*.pcap
+*.pcapng
+filtered_packets.csv
+captured_packets.csv
+tempCodeRunnerFile.py
+.env
+.env.*
