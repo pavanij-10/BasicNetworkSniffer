@@ -1,29 +1,41 @@
-# Basic Network Sniffer and Traffic Analysis Dashboard
+# 🌐 Basic Network Sniffer & Traffic Analysis Dashboard
 
-## About the Project
+A beginner-friendly network analysis project built using Python, Scapy, Streamlit, and Pandas.
 
-This is a beginner-friendly network traffic analysis project built using Python, Scapy, and Streamlit. It captures authorized IPv4 network traffic, displays packet details, saves captured packets, and presents traffic statistics through a web dashboard.
+This project captures network packets, extracts useful information, and displays saved packet data through an interactive dashboard.
 
-## Features
+## 🎯 Project Objective
 
-- Capture live network packets
-- Display source and destination IP addresses
-- Identify protocols such as TCP, UDP, and other IPv4 protocols
-- Display port numbers and packet sizes when available
-- Save captured packets in PCAP format
-- Visualize protocol and packet-size distributions
-- View frequently appearing source and destination IP addresses
-- Filter packet data by protocol and IP address
-- Export packet-table data to CSV
+The goal is to understand how network packets work and learn the basics of network traffic analysis through practical implementation.
 
-## Technologies Used
+## ✨ Features
 
-- Python
-- Scapy
-- Streamlit
-- Pandas
+- **Packet Capture:** Capture IPv4 network traffic using Scapy.
+- **Protocol Filtering:** Filter traffic by TCP, UDP, ICMP, or other IPv4 traffic.
+- **Packet Inspection:** View source IP, destination IP, protocol, port numbers when available, and packet size.
+- **Traffic Visualization:** Explore protocol distribution, IP address charts, and packet-size statistics.
+- **IP Filtering:** Filter packets by source or destination IP address.
+- **CSV Export:** Download filtered packet information for further analysis.
+- **PCAP Support:** Load saved packet captures into the dashboard.
 
-## Project Structure
+## 🔄 How It Works
+
+1. `sniffer.py` captures network packets and displays their details.
+2. Captured packets can be saved to a `.pcap` file.
+3. `dashboard.py` reads a saved capture and presents its information through charts, statistics, and a packet table.
+4. Users can filter the displayed packets and export the filtered data as CSV.
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Python | Main programming language |
+| Scapy | Packet capture and inspection |
+| Streamlit | Interactive dashboard |
+| Pandas | Tabular data handling |
+| Npcap | Windows packet-capture support |
+
+## 📂 Project Structure
 
 ```text
 BasicNetworkSniffer/
@@ -34,65 +46,56 @@ BasicNetworkSniffer/
 └── .gitignore
 ```
 
-## Installation
+## 🚀 Getting Started
 
-1. Install Python on your computer.
-2. Open a terminal in the project folder.
-3. Create and activate a virtual environment.
-4. Install the required packages:
+**Requirements:** Python, Npcap on Windows, and the required Python packages.
+
+### 1. Clone the repository
 
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/pavanij-10/BasicNetworkSniffer.git
+cd BasicNetworkSniffer
 ```
 
-## How to Run
+### 2. Create and activate a virtual environment
 
-### 1. Start the packet sniffer
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
 
-```bash
+### 3. Install dependencies
+
+```powershell
+python -m pip install -r requirements.txt
+```
+
+### 4. Capture packets
+
+```powershell
 python sniffer.py
 ```
 
-Follow the menu to select a capture option and packet limit.
+Follow the program prompts to choose the capture filter and options. Live capture may require appropriate permissions.
 
-### 2. Start the dashboard
+### 5. Open the dashboard
 
-Open another terminal in the project folder and run:
+Ensure you have a saved `.pcap` capture available, then run:
 
-```bash
+```powershell
 python -m streamlit run dashboard.py
 ```
 
-Open the local URL shown in the terminal, usually `http://localhost:8501`, and upload your saved PCAP file.
+Open the local URL displayed in the terminal, usually `http://localhost:8501`, and load your capture in the dashboard.
 
-## Example Test Results
+## 🔐 Responsible Use
 
-In one test run, the sniffer captured 50 packets:
+Capture traffic only on networks you own or have permission to analyze. Packet captures may contain sensitive information, so handle and share them carefully.
 
-- TCP: 34 packets
-- UDP: 9 packets
-- Other IPv4 protocols: 7 packets
-- Total packet data size: 31,737 bytes
+## 📌 Scope
 
-Results may differ between captures because network traffic changes over time.
+This is an educational project for basic packet capture and offline traffic analysis. It is not a full intrusion detection system or a replacement for advanced network analysis tools.
 
-## Limitations
+---
 
-- Captured traffic depends on the network interface, permissions, filters, and activity during capture.
-- Encrypted HTTPS content is not automatically readable.
-- The dashboard analyzes the packets provided in the uploaded capture file.
-
-## Responsible Use
-
-Use this project only on networks and devices you own or have explicit permission to inspect. Do not publish packet captures or exported data that may contain sensitive information.
-
-## Future Improvements
-
-- Improve support for additional protocols
-- Add packet timestamps and capture-duration statistics
-- Expand testing and error handling
-- Improve dashboard filtering and analysis
-
-## Disclaimer
-
-This project is intended for educational purposes and for authorized network analysis.
+**Built as a hands-on project to learn Python, networking, and cybersecurity fundamentals.**
